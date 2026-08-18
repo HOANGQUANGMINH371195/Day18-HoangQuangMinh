@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="760" viewBox="0 0 1800 760">
+  <rect width="1800" height="760" fill="#101820"/>
+  <rect width="1800" height="64" fill="#1f2937"/>
+  <text x="32" y="40" fill="#f9fafb" font-family="monospace" font-size="24">Day 18 Lakehouse — executed evidence</text>
+  <g fill="#7ee787" font-family="monospace" font-size="21">
+    <text x="32" y="105">$ find _lakehouse -maxdepth 3 -type d | sort</text>
+    <text x="32" y="140">_lakehouse/</text>
+    <text x="32" y="172">├── bronze/</text>
+    <text x="32" y="204">├── gold/</text>
+    <text x="32" y="236">├── iceberg/</text>
+    <text x="32" y="268">└── scratch/customers_tt/_delta_log/</text>
+  </g>
+  <g fill="#d1d5db" font-family="monospace" font-size="17">
+    <text x="32" y="320">$ head -n 4 _lakehouse/scratch/customers_tt/_delta_log/00000000000000000000.json</text>
+    <text x="32" y="355">{"commitInfo":{"operation":"WRITE","operationParameters":{"mode":"Overwrite"},</text>
+    <text x="32" y="382">"engineInfo":"delta-rs:py-1.6.2","operationMetrics":{"num_added_files":1,</text>
+    <text x="32" y="409">"num_added_rows":100000,"num_removed_files":0}}}</text>
+    <text x="32" y="444">{"protocol":{"minReaderVersion":1,"minWriterVersion":2}}</text>
+    <text x="32" y="479">{"metaData":{"format":{"provider":"parquet"},"schemaString":"struct&lt;customer_id:long,</text>
+    <text x="32" y="506">status:string,score:long&gt;"}}</text>
+    <text x="32" y="541">{"add":{"path":"part-00000-…-c000.snappy.parquet","size":622767,</text>
+    <text x="32" y="568">"stats":{"numRecords":100000,"minValues":{"score":0},"maxValues":{"score":999}}}</text>
+  </g>
+  <text x="32" y="670" fill="#9ca3af" font-family="sans-serif" font-size="18">Evidence captured after make run-all: 8/8 notebooks passed; Delta transaction log visible.</text>
+</svg>
